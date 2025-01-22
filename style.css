@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap');
+@font-face {
+    font-family: viking;
+    src:     
+    url(./vikingn.ttf)
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Uncial Antiqua", serif;
+}
+
+  body 
+  {    
+    overflow: hidden;
+    main 
+    {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        width: 100vw;
+        transition: transform 1s ease-in-out;
+        section 
+        {
+            position: relative;
+            flex: 0 0 100vh; /* Chaque section occupe 100% de la hauteur */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 24px;
+            color: white;
+            text-shadow: 3px 3px 2px rgb(0, 0, 0);             
+            img
+            {
+              position: absolute;
+              z-index: -1;
+              object-fit: cover;
+              height: 100%;
+              width: 100%;       
+            }
+        }
+    }
+    #restart-button 
+    {
+        z-index: 1000;
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 15px;
+        background-color: #e0e0e0;
+        color: rgb(80, 80, 80);
+        border: none;
+        border-radius: 50%;
+        font-size: 24px;
+        cursor: pointer;
+        display: none; /* Caché au départ */
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        &:hover {
+            background-color: #5354a5;
+            transform: translateX(-50%) scale(1.1);
+          } 
+    }
+} 
+  .first
+  { 
+    h2
+    {
+      position: absolute;
+      font-size: 1em; 
+      animation: fadeInTop 1s forwards;     
+    }
+    h1
+    {
+      position: absolute;
+      font-size: 3em;      
+      animation: fadeInBottomFirst 4s forwards; 
+      animation-delay: 0.5s;
+      bottom: -100px;
+    }
+  }
+  .second 
+  {     
+    .screen-text
+    {
+      position: absolute;
+      &.one
+      {
+        animation: fadeInLeft 1s forwards ; 
+        animation-delay: 7s;
+        top: 120px;
+        left: -180px;
+      }
+      &.two
+      {
+        animation: fadeInRight 1s forwards;
+        animation-delay: 8s;
+        top: 190px;
+        right: -180px;
+      }
+      &.three
+      {
+        animation: fadeIn 2s forwards;
+        animation-delay: 9.5s;
+        opacity: 0;
+        font-family: viking;
+        font-size: 2.3em;          
+      }
+      &.four
+      {
+        animation: fadeInBottom 1.5s forwards; 
+        animation-delay: 10s;
+        bottom: -180px;
+      }
+    }
+  }
+  .third 
+  {     
+    .screen-text
+    {
+        font-size: 1.2em;
+        animation: scaleIn 1s forwards;
+        animation-delay: 13s;
+        position: absolute;
+        &.one
+        {
+          font-size: 0.5em;
+          top: 30%;
+        }
+        &.two
+        {
+          animation-delay: 14s;
+        }
+    }
+  }
+  .fourth 
+  { 
+    .screen-text
+    {
+      position: absolute;
+      width: 100%;
+      &.one
+      {
+        animation: fadeInTopTwo 2s forwards;
+        animation-delay: 18s;
+      } 
+      &.two
+      {
+        animation: fadeInLeft 1s forwards ;
+        top: 300px;
+        left: -350px;
+        animation-delay: 19.5s;
+      }
+      &.three
+      {
+        animation: fadeInRight 1s forwards ;
+        top: 400px;
+        right: -380px;
+        animation-delay: 20.5s;
+      }     
+    }
+  }
+  .fifth 
+  {  
+    .screen-text     
+    {      
+      position: absolute;
+      width: 100%;
+      &.one
+      {
+        top: 180px;        
+        font-size: 0.5em;
+        animation: scaleIn 1s forwards;
+        animation-delay: 25s;
+      }
+      &.two
+      {
+        font-size: 1.2em;  
+        animation: scaleIn 2s forwards;   
+        animation-delay: 26s;
+      }
+        
+    }
+  }
+  @media screen and (orientation: landscape) and (min-width: 695px) {
+    main {
+      section {
+        height: 100%;
+        img 
+        {          
+          top: 0 !important;          
+          height: auto !important;                    
+          width: 100% !important;          
+        }
+      }
+    }
+  }
+  /* Animations */
+  /* Ecran 1 */
+  @keyframes fadeInTop
+  {
+    from
+    {
+      top: -100px;
+    }
+    to
+    {
+      top: 250px;
+    }
+  }
+  @keyframes fadeInBottomFirst
+  {
+    0%
+    {
+      bottom: -100px;
+    }
+    25%
+    {
+      bottom: 250px;
+    }
+    50%
+    {
+      bottom: 250px;
+      transform: scale(1.1);
+      opacity: 1;
+    }
+    75%
+    {
+      transform: scale(1);
+    }
+    100%
+    {      
+      bottom: 250px;
+      transform: scale(1);
+    }
+  }
+/**/
+/* Ecran 2 */
+  @keyframes fadeInLeft
+  {
+    from
+    {
+      left: -180px;
+    }
+    to
+    {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes fadeInRight
+  {
+    from
+    {
+      right: -180px;
+    }
+    to
+    {
+      right: 50%;
+      transform: translateX(50%);
+    }
+  }
+  @keyframes fadeIn
+  {
+    0%
+    {
+      opacity: 0;
+      font-size: 1px;
+    }
+    30%
+    {
+      opacity: 1;
+      font-size: 2.5em;
+      transform: scale(1.5);
+    }    
+    100%
+    {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  @keyframes fadeInBottom
+  {
+    from
+    {
+      bottom: -180px;
+    }
+    to
+    {
+      bottom: 250px;      
+    }
+  }
+  /**/
+  @keyframes scaleIn
+  {
+    from
+    {
+      transform: scale(1);
+    }
+    to
+    {
+      transform: scale(2.5);
+    }
+  }
+  @keyframes fadeInTopTwo
+  {
+    from
+    {
+      top: -100px;
+    }
+    to
+    {
+      top: 150px;
+    }
+  }
