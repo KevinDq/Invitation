@@ -1,7 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const sections = document.querySelectorAll("section");
-    const main = document.querySelector("main");
+    const sections = document.querySelectorAll(".screen");
+    const main = document.querySelector(".main");
     const restartButton = document.getElementById("restart-button");
+    const menuButton = document.getElementById('menu-btn');
+    menuButton.addEventListener("click", toggleMenu);
+  
+  function toggleMenu() {
+    const menuList = document.getElementById('menu') // Cibler le 1er élément
+    menuList.classList.toggle('toggle'); // Ajouter ou retirer la classe
+    menuButton.classList.toggle('toggle'); // Ajouter ou retirer la classe
+  }
+    
+
     let currentIndex = 0;
     let interval;
   
@@ -12,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         clearInterval(interval);
         restartButton.style.display = "block"; // Affiche le bouton avec l'icône
+        menuButton.style.display = "block"; // Affiche le bouton avec l'icône
       }
     };
   
@@ -21,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
       currentIndex = 0;
       main.style.transform = `translateY(0)`;
       restartButton.style.display = "none";
+      menuButton.style.display = "none";
       interval = setInterval(scrollSections, 6000);
     });
   });
@@ -31,5 +43,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Affichage du message personnalisé
   document.getElementById('personal-message').textContent = `${name} !`;
-  document.getElementById('personal-message-two').textContent = `${name}`;
-  
+  document.getElementById('personal-message-two').textContent = `${name}`;  
