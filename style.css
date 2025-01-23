@@ -14,17 +14,17 @@
     font-family: "Uncial Antiqua", serif;
 }
 
-  body 
+  main 
   {    
     overflow: hidden;
-    main 
+    .main 
     {
         display: flex;
         flex-direction: column;
         height: 100vh;
         width: 100vw;
         transition: transform 1s ease-in-out;
-        section 
+        .screen
         {
             position: relative;
             flex: 0 0 100vh; /* Chaque section occupe 100% de la hauteur */
@@ -42,32 +42,100 @@
               z-index: -1;
               object-fit: cover;
               height: 100%;
-              width: 100%;       
+              width: 100%;                   
             }
         }
     }
-    #restart-button 
-    {
+    .buttons
+    {      
+      #restart-button 
+      {
         z-index: 1000;
         position: absolute;
-        bottom: 20px;
-        left: 50%;
+        bottom: 25px;
+        left: 20%;
         transform: translateX(-50%);
         padding: 15px;
-        background-color: #e0e0e0;
-        color: rgb(80, 80, 80);
-        border: none;
+        background-color: rgba(2, 2, 2, 0.8);
+        color: rgb(238, 238, 238);
+        border: 1px solid grey;
         border-radius: 50%;
         font-size: 24px;
         cursor: pointer;
-        display: none; /* Caché au départ */
-        transition: background-color 0.3s ease, transform 0.2s ease;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        &:hover {
-            background-color: #5354a5;
-            transform: translateX(-50%) scale(1.1);
+        display: none; /* Caché au départ */        
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);        
+      }
+      #menu-btn
+      {
+        z-index: 1000;
+        position: absolute;
+        bottom: 30px;
+        left: 40%;  
+        overflow: hidden;           
+        padding: 10px;
+        background-color: rgba(14, 14, 14, 0.5);
+        color: rgb(31, 226, 252);
+        border: 1px solid rgb(231, 231, 231);
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        display: none; /* Caché au départ */        
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  
+        #menu-btn-one
+        {
+          transition: 0.5s;
+        }  
+        #menu-btn-two
+        {
+          display: none;          
+        } 
+        &.toggle        
+        {
+          background-color: rgba(172, 172, 172, 0.5);
+          color: rgba(14, 14, 14);
+          #menu-btn-one
+        {
+          display: none;
+        } 
+          #menu-btn-two
+          {
+            display: block;
           } 
+        }    
+      }
     }
+    #menu
+    {
+      position: absolute;
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(10px);
+      color: rgb(31, 31, 31);
+      text-shadow: 0px 2px 10px rgb(219, 169, 32);  
+      border-radius: 10px;
+      width: 90%;
+      overflow: hidden;
+      height: 0;
+      transition: height 0.5s;      
+      ul
+      {        
+        li
+        {
+          list-style-position: inside;
+          list-style-type: none;
+          margin: 8px 0;
+          text-align: center;
+          font-size: 1.2em;
+        }
+      }
+      &.toggle
+      {
+        height: 75%;
+        padding: 20px;
+      }    
+    }    
 } 
   .first
   { 
@@ -84,7 +152,13 @@
       animation: fadeInBottomFirst 4s forwards; 
       animation-delay: 0.5s;
       bottom: -100px;
+      color: #29d1c9;
     }
+    img
+    {
+      animation: blurEffect 5s forwards; 
+    }
+    
   }
   .second 
   {     
@@ -111,6 +185,7 @@
         animation-delay: 9.5s;
         opacity: 0;
         font-family: viking;
+        color: #29d1c9;
         font-size: 2.3em;          
       }
       &.four
@@ -119,7 +194,13 @@
         animation-delay: 10s;
         bottom: -180px;
       }
+      
     }
+    img
+      {
+        animation: blurEffect 5s forwards; 
+        animation-delay: 7s;
+      }
   }
   .third 
   {     
@@ -129,6 +210,7 @@
         animation: scaleIn 1s forwards;
         animation-delay: 13s;
         position: absolute;
+        transform: scale(0);
         &.one
         {
           font-size: 0.5em;
@@ -137,8 +219,14 @@
         &.two
         {
           animation-delay: 14s;
-        }
+          color: #29d1c9;
+        }        
     }
+    img
+      {
+        animation: blurEffect 5s forwards; 
+        animation-delay: 13s;
+      }
   }
   .fourth 
   { 
@@ -157,6 +245,7 @@
         top: 300px;
         left: -350px;
         animation-delay: 19.5s;
+        color: #29d1c9;
       }
       &.three
       {
@@ -164,8 +253,14 @@
         top: 400px;
         right: -380px;
         animation-delay: 20.5s;
-      }     
+        color: #29d1c9;
+      }         
     }
+    img
+      {
+        animation: blurEffect 5s forwards; 
+        animation-delay: 18s;
+      } 
   }
   .fifth 
   {  
@@ -173,6 +268,7 @@
     {      
       position: absolute;
       width: 100%;
+      transform: scale(0);
       &.one
       {
         top: 180px;        
@@ -185,9 +281,14 @@
         font-size: 1.2em;  
         animation: scaleIn 2s forwards;   
         animation-delay: 26s;
-      }
-        
+        color: #29d1c9;
+      }            
     }
+    img
+      {
+        animation: blurEffect 5s forwards; 
+        animation-delay: 25s;
+      }
   }
   @media screen and (orientation: landscape) and (min-width: 695px) {
     main {
@@ -302,7 +403,7 @@
   {
     from
     {
-      transform: scale(1);
+      transform: scale(0);
     }
     to
     {
@@ -318,5 +419,20 @@
     to
     {
       top: 150px;
+    }
+  }
+  @keyframes blurEffect
+  {
+    0%
+    {
+      filter: grayscale(0) blur(0);      
+    }
+    50%
+    {
+      filter: grayscale(0) blur(0);
+    }
+    100%
+    {
+      filter: grayscale(0.9) blur(5px);
     }
   }
